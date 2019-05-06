@@ -1,0 +1,137 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<div class="container">
+  <article>
+      <h1>Registered Users</h1>
+      <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Surname</th>
+              <th scope="col">email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Company</th>
+              <th scope="col">Time Accessed</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in users %}
+              <tr>
+                <th scope="row">{{ user.id}}</th>
+                <td>{{ user.first_name}}</td>
+                <td>{{ user.surname}}</td>
+                <td>{{ user.email}}</td>
+                <td>{{ user.phone}}</td>
+                <td>{{ user.company}}</td>
+                <td>{{ user.last_accessed}}</td>
+                <td><a href="{{ url_for('delete', id=user.id)}}" class="btn btn-danger">Delete</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+    </article>
+
+    <article>
+      <h1>Questions Asked</h1>
+      <div>
+        <!--<a href="{{ url_for('add_company') }}" class="btn btn-success">Add Company</a>-->
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Question Asked</th>
+            <th scope="col">Answer given</th>
+            <th scope="col">Accuracy Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for question in questions %}
+            <tr>
+              <th scope="row">{{ question.question }}</th>
+              <td>{{ question.answer }}</a></td>
+              <td>{{ question.accuracy }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </article>
+
+    <article>
+      <h1>Failed Questions Asked</h1>
+      <div>
+        <!--<a href="{{ url_for('add_company') }}" class="btn btn-success">Add Company</a>-->
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Question Asked</th>
+            <!-- <th scope="col">Answer given</th>
+            <th scope="col">Accuracy Level</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          {% for question in failed %}
+            <tr>
+              <td scope="row">{{ question.question }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </article>
+
+   <!-- <article>
+      <h1>Emails Recieved</h1>
+      <div>
+        <a href="{{ url_for('add_company') }}" class="btn btn-success">Add Company</a>
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Message</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for email in emails %}
+            <tr>
+              <th scope="row">{{ email.name }}</th>
+              <td>{{ email.email }}</a></td>
+              <td>{{ email.phone }}</td>
+              <td>{{ email.message }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </article>-->
+    
+    <article>
+      <h1>Registered Companies</h1>
+      <div>
+        <!--<a href="{{ url_for('add_company') }}" class="btn btn-success">Add Company</a>-->
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Data set</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for company in companies %}
+            <tr>
+              <th scope="row">{{ company.id}}</th>
+              <td><a href="{{ url_for('company', id=company.id)}}">{{ company.name}}</a></td>
+              <td>{{ company.dataset}}</td>
+              <td><a href="{{ url_for('delete', id=company.id)}}" class="btn btn-danger">Delete</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </article>
+</div>
+{% endblock %}

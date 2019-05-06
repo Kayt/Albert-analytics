@@ -1,0 +1,692 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126738533-1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.10/dist/sweetalert2.all.min.js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-126738533-1');
+    </script>
+
+
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("p").append(" <b>Appended text</b>.");
+            });
+            $("#btn2").click(function () {
+                $("ol").append("<li>Appended item</li>");
+            });
+        });
+
+
+
+    </script>
+    <style>
+        .loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 1s linear infinite;
+}
+
+.loader2 {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #3498db; 
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+    </style>
+
+    <!-- Title -->
+    <title>X Analytics</title>
+
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png">
+    <!-- Plugin-CSS -->
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/sweetalert2.min.css">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+
+    <script src="{{ url_for('static', filename='js/form.js') }}"></script>
+    <link rel="stylesheet" href="/static/widget/css/style.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/css/magnific-popup.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/slicknav.css">
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <!-- Main-Stylesheets -->
+    <link rel="stylesheet" href="/static/widget/css/custom.css">
+    <link rel="stylesheet" href="/static/css/theme.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <script src="/static/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<!-- Prealoader-->
+<div class="preloader">
+    <div class="waves-block">
+        <div class="icon">
+            <i class="fa fa-hourglass-half"></i>
+        </div>
+        <div class="waves wave-1"></div>
+        <div class="waves wave-2"></div>
+        <div class="waves wave-3"></div>
+    </div>
+</div>
+<nav class="navbar mainmenu-area" data-spy="affix" data-offset-top="200">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainmenu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">X Analytics</a>
+        </div>
+        <div class="collapse navbar-collapse" id="mainmenu">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#home-page">Home</a></li>
+                <li><a href="#service-page">About</a></li>
+                <li><a href="#feature-page">Our Solutions</a></li>
+                <li><a href="#our-clients">Our Clients</a></li>
+
+                <li><a href="#contact-page">Contact</a></li>
+                <li><a href="https://www.freeprivacypolicy.com/privacy/view/43e88778d6c2c8b74955bd211948f9d7">Privacy
+                        Policy</a></li>
+
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Main-Menu-Area / -->
+<!-- Header-Area -->
+<header id="home-page" class="header-area text-white xs-center" style="background-image: url('/static/images/shapre-3.png'); ">
+    <div class="overlay dark-blue"></div>
+    <div class="table-cell">
+        <div class="container">
+            <div class="row middle-row">
+                <div class="col-xs-12 col-md-5">
+                    <h3 class="heading-3 text-white wow fadeInUp" data-wow-delay="0.3s">DELIVERING INTELLIGENT
+                        SOLUTIONS FOR AFRICA</h3>
+                    <p class=" wow fadeInUp" data-wow-delay="0.4s">Is your organization paying forex for your
+                        software solution?
+                        Try our local solutions today.</p>
+                    <div class="space-30"></div>
+                    <a href="#contact-page" class="bttn-5 wow fadeInUp" data-wow-delay="0.5s">Contact Us Today</a>
+                    <div class="space-60 hidden visible-xs visible-sm"></div>
+                </div>
+                <div class="hidden-xs col-md-6">
+                    <figure class="single-image wow fadeInDown">
+                        <img src="/static/images/isomatric-1.png" alt="Laptop">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header-Area / -->
+<section class="section-padding-top" id="service-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 text-center">
+                <div class="page-title">
+                    <h4 class="heading-4 title">About X Analytics</h4>
+                    <p>X Analytics is a tech startup company comprising of a young, energetic team
+                        with the sole objective of providing innovative software solutions spanning across all
+                        Industries. Our major aim is to provide software solutions that solve existing problems
+                        whilst improving customer convenience and satisfaction. We focus on providing local
+                        businesses with tailor-made software solutions that range from conversational chatbots,
+                        payment solutions, A.I. and Data Analytics to Entreprise Solutions.
+
+                    </p>
+                </div>
+                <div class="space-80"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="section-padding-top" style="background-image: url(/static/images/section-bg-4.png);background-position: right center; background-size: 60% auto;">
+    <div class="container">
+        <div class="row middle-row">
+            <div class="col-xs-12 col-md-5 wow fadeInLeft">
+                <h4 class="heading-4">Our Technology</h4>
+                <p>X Analytics makes use of Artificial Intelligence to address personal and
+                    corporate challenges in order to bring convenience to businesses and their clients. We
+                    specialize in intelligent conversational chat bots that increase customer satisfaction
+                    thereby adding value to businesses. We design the future today. We believe that the future
+                    of technology is centered on artificial intelligence and big data and this is where we are
+                    focused.</p>
+                <div class="space-15"></div>
+
+                <div class="space-60 hidden visible-xs visible-sm"></div>
+            </div>
+            <div class="col-xs-12 col-md-5  wow fadeInRight">
+                <figure class="wow">
+                    <img src="/static/images/isomatric-2.png" alt="deshbord">
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding-top" style="background-image: url(/static/images/section-bg-5.png); background-size: 60% auto; background-position: bottom left;">
+    <div class="container">
+        <div class="row middle-row">
+            <div class="col-xs-12 col-md-5 wow fadeInRight">
+                <figure class="wow">
+                    <img src="/static/images/isomatric-3.png" alt="deshbord">
+                </figure>
+                <div class="space-60 hidden visible-xs visible-sm"></div>
+            </div>
+            <div class="col-xs-12 col-md-5 wow fadeInLeft">
+
+
+                <h4 class="heading-4">Our Vision</h4>
+                <p> Our vision is to replace the majority of obsolete services and job descriptions in Zimbabwe with
+                    automated bots therefore increasing the bottom line for businesses whilst improving their
+                    customer satisfaction. We believe in harnessing artificial intelligence capabilities to provide
+                    solutions that address rampant problems across Africa. Companies in Zimbabwe should not have to
+                    spend foreign currency importing software solutions that we can create locally. Ultimately, we
+                    envision to become the largest artificial intelligence solutions provider in Africa.</p>
+                <div class="space-15"></div>
+
+                <div class="space-60 hidden visible-xs visible-sm"></div>
+            </div>
+            <div class="col-xs-12 col-md-4  wow fadeInRight">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="feature-page" class="section-padding" style="background-image: url('/static/images/section-bg-2.png'); background-position: center center; background-size: 100% 100%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 text-center">
+                <div class="page-title">
+                    <h4 class="heading-4 title">Our Solutions</h4>
+
+                </div>
+                <div class="space-80"></div>
+            </div>
+        </div>
+        <div class="row" style="text-align:center">
+            <div class="col-xs-12  col-md-4">
+                <div class="single-feature v2 wow fadeInRight" data-wow-delay="0.3s">
+                    <div class="feature-icon">
+                        <img src="/static/images/icons/service-01.png" alt="Easy Intregration">
+                    </div>
+                    <h5 class="title">Conversational Chatbots</h5>
+                    <p>We develop intelligent Chat bots tailor-made for your business for use across all platforms,
+                        Twitter, Facebook and Whatsapp (pending approval) for Banking, Insurance, Healthcare,
+                        Travel and Hospitality, Customer Service and Tax advisory amongst many others.</p>
+                </div>
+            </div>
+            <div class="col-xs-12  col-md-4">
+                <div class="single-feature v2 wow fadeInRight" data-wow-delay="0.4s">
+                    <div class="feature-icon">
+                        <img src="/static/images/icons/service-02.png" alt="Easy Intregration">
+                    </div>
+                    <h5 class="title">Systems Development</h5>
+                    <p>We develop a wide range of robust systems that suit your business needs. Our aim is to
+                        develop useful technology solutions locally so that businesses in Zimbabwe can save
+                        themselves the foreign currency they spend importing software.</p>
+                </div>
+            </div>
+            <div class="col-xs-12  col-md-4">
+                <div class="single-feature v2 wow fadeInRight" data-wow-delay="0.5s">
+                    <div class="feature-icon">
+                        <img src="/static/images/icons/service-03.png" alt="Easy Intregration">
+                    </div>
+                    <h5 class="title">Innovative Payment Solutions</h5>
+                    <p>We develop exciting payment solutions that integrate and work seamlessly with international
+                        payment system to address local problems. We accommodate all the payment solutions that are
+                        currently operational in the country.</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="single-feature v2 wow fadeInRight" data-wow-delay="0.7s">
+                    <div class="feature-icon">
+                        <img src="/static/images/icons/service-04.png" alt="Easy Intregration">
+                    </div>
+                    <h5 class="title">Mobile App Development</h5>
+                    <p>We use latest technologies to develop mobile applications for all mobile platforms to suit
+                        your needs and requirements. We develop applications for all mobile platforms, iOS, Android
+                        and Windows according to your requirements - be it native or cross platform. </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="single-feature v2 wow fadeInRight" data-wow-delay="0.7s">
+                    <div class="feature-icon">
+                        <img src="/static/images/icons/service-05.png" alt="Easy Intregration">
+                    </div>
+                    <h5 class="title">Websites and Web Apps</h5>
+                    <p>We engineer efficient web applications tailor-made for your everyday business needs. We use
+                        cutting modern technologies to bring iterative and responsive websites for you. We also
+                        develop applications that run on the web to suit the requirements of your business and also
+                        bring convenience</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="single-feature v2 wow fadeInRight" data-wow-delay="0.8s">
+                    <div class="feature-icon">
+                        <img src="/static/images/icons/service-06.png" alt="Easy Intregration">
+                    </div>
+                    <h5 class="title">3D Design and Virtual Reality Modelling</h5>
+                    <p>We have modern and advanced skills in 3D Design and Virtual Reality Modelling. We take your
+                        imagination and bring it to visual concept to help you understand your idea better and make
+                        the best of design without committing too many resources to build a real life concept.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<section id="our-clients" class="section-padding" style="background-image: url('/static/images/section-bg-2.png'); background-position: center center; background-size: 100% 100%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 text-center">
+                <div class="page-title">
+                    <h4 class="heading-4 title">Our Clients</h4>
+
+                </div>
+
+                <div class="space-80"></div>
+            </div>
+        </div>
+        <div class="row col-xs-12 col-md-offset-1">
+            <div class="col-xs-12">
+                <div class="col-xs-2">
+                    <img src="/static/images/sponsor-1.png" alt="sponsor">
+                </div>
+                <div class="col-xs-2">
+                    <img src="/static/images/sponsor-2.png" alt="sponsor">
+                </div>
+                <div class="col-xs-2">
+                    <img src="/static/images/sponsor-3.png" alt="sponsor">
+                </div>
+                <div class="col-xs-2">
+                    <img src="/static/images/sponsor-4.png" alt="sponsor">
+                </div>
+                <div class="col-xs-2">
+                    <img src="/static/images/sponsor-5.png" alt="sponsor">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="contact-page" class="section-padding contact-area" style="background: url('/static/images/welcome-4-Shape.png') no-repeat scroll center left 10px / 600px 100%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 text-center">
+                <div class="page-title">
+                    <h4 class="heading-4 title">Contact our support forum</h4>
+                    <p>Notifications keep you informed of all updates. Customize them to receive as many, or as
+                        few, as you want.</p>
+                </div>
+                <div class="space-80"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <form id="contact-form" class="contactform">
+                    <div class="col-xs-12 col-md-4">
+                        <div class="input-box">
+                            <label for="form-name">Your Name *</label>
+                            <input required type="text" name="form-name" id="userName" class="form-input">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="input-box">
+                            <label for="form-email">Your Email *</label>
+                            <input required type="email" name="form-email" id="form-email" class="form-input">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="input-box">
+                            <label for="form-phone">Phone</label>
+                            <input type="text" name="form-phone" id="form-phone" class="form-input">
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="input-box">
+                            <label for="form-website">Website</label>
+                            <input type="text" id="form-website" name="form-website" class="form-input">
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="input-box">
+                            <label for="form-message">Message *</label>
+                            <textarea required name="form-message" id="form-message" cols="30" rows="5" class="form-input"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="loader" id="loader" style="display:none; margin-left: 45%"></div>
+                        <button class="bttn-3" type="submit">Submit &nbsp;&nbsp;<i class="fa fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<body data-spy="scroll" data-target=".mainmenu-area">
+    <!-- Prealoader-->
+
+    <div class="floating-chat">
+        <i class="fa fa-comments fa-2x" aria-hidden="true"> </i>
+        <div class="chat">
+            <div class="header">
+                <span class="title">
+                    X Analytics
+                </span>
+                <button>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+
+            </div>
+            <script>
+                function about() {
+                    var messagesContainer = $(".messages");
+
+                    newMessage = "about";
+                    console.log(newMessage);
+                    messagesContainer.append(
+                        ['<li class="other">', 'About X Analytics', "</li>"].join("")
+                    );
+                    $.ajax({
+                        type: "POST",
+                        url: "/ask",
+                        data: {
+                            messageText: newMessage
+                        },
+                        success: function (response) {
+                            messagesContainer.append(
+                                ['<li class="self">', response.answer, "</li>"].join("")
+                            );
+                            messagesContainer.finish().animate(
+                                {
+                                    scrollTop: messagesContainer.prop("scrollHeight")
+                                },
+                                250
+                            );
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    });
+                    messagesContainer.finish().animate(
+                        {
+                            scrollTop: messagesContainer.prop("scrollHeight")
+                        },
+                        250
+                    );
+
+                }
+                function apply() {
+                    var messagesContainer = $(".messages");
+
+                    newMessage = "apply";
+                    console.log(newMessage);
+                    messagesContainer.append(
+                        ['<li class="other">', 'Apply For a ChatBot', "</li>"].join("")
+                    );
+                    $.ajax({
+                        type: "POST",
+                        url: "/ask",
+                        data: {
+                            messageText: newMessage
+                        },
+                        success: function (response) {
+                            messagesContainer.append(
+                                ['<li class="self">', response.answer, "</li>"].join("")
+                            );
+                            messagesContainer.finish().animate(
+                                {
+                                    scrollTop: messagesContainer.prop("scrollHeight")
+                                },
+                                250
+                            );
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    });
+                    messagesContainer.finish().animate(
+                        {
+                            scrollTop: messagesContainer.prop("scrollHeight")
+                        },
+                        250
+                    );
+
+                }
+                function menu() {
+
+                    var messagesContainer = $(".messages");
+
+                    newMessage = "hi";
+                    console.log(newMessage);
+                    messagesContainer.append(
+                        ['<li class="other">', 'Menu', "</li>"].join("")
+                    );
+                    $.ajax({
+                        type: "POST",
+                        url: "/ask",
+                        data: {
+                            messageText: newMessage
+                        },
+                        success: function (response) {
+
+                            messagesContainer.append(
+                                ['<li class="self">', response.answer, "</li>"].join("")
+                            );
+                            messagesContainer.finish().animate(
+                                {
+                                    scrollTop: messagesContainer.prop("scrollHeight")
+                                },
+                                250
+                            );
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    });
+                    messagesContainer.finish().animate(
+                        {
+                            scrollTop: messagesContainer.prop("scrollHeight")
+                        },
+                        250
+                    );
+
+                }
+
+            </script>
+
+
+            <ul class="messages" id="chatOption">
+                <form id="registerForm" method="POST">
+                    <li class="self">Welcome to X Analytics. To Get Started Please Enter Your Name and
+                        your Email Address<br /><br />
+                        <div class="form-group">
+                            <label class="sr-only" for="nameInput">Name</label>
+                            <input required type="text" class="form-control" id="nameInput" placeholder="First Name">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="nameInput">Surname</label>
+                            <input required type="text" class="form-control" id="surnameInput" placeholder="Surname">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="sr-only" for="emailInput">Email address</label>
+                            <input required type="email" class="form-control" id="emailInput" placeholder="Email">
+                        </div>
+                        <br />
+
+                        <button style="background-color: #0080FF" class="btn  btn-round btn-danger btn-block " type="submit"><span
+                                id="text">Get
+                                Started <div class="loader2" id="loader2" style="display:none; margin-left: 45%"></div></span>
+                        </button>
+
+                    </li>
+                </form>
+                <li id="successAlert" class="self alert alert-success" role="alert" style="display:none;"></li>
+
+
+
+
+            </ul>
+            <div class="footer ">
+                <a href="#" onclick="menu(); return false;" style="color:white"><button style="background-color: #0080FF"
+                        class="btn  btn-round" type="button">Menu
+                    </button></a>
+                &nbsp;
+                <p>
+                    <div class="text-box" contenteditable="true" disabled="true" style="background-color:white; color: black"></div>
+                    <button id="sendMessage">send</button>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="container">
+        <br><br><br><br>
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="emailInput">Email address</label>
+                <input type="email" class="form-control" id="emailInput" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="nameInput">Name</label>
+                <input type="text" class="form-control" id="nameInput" placeholder="First Name">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <br>
+        <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+        <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+    </div> -->
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+
+
+
+    <script src="/static/widget/js/index.js"></script>
+
+
+    <footer class="footer-area v4" style="background-image: url(/static/images/footer-bg-3.png); color:white">
+        <div class="container">
+            <div class="space-60"></div>
+            <div class="row footer-widget-area">
+                <div class="col-xs-12 col-sm-3">
+                    <div class="widget">
+                        <p>X Analytics is a tech startup company comprising of a young, energetic team
+                            with the sole objective of providing innovative software solutions spanning across all
+                            Industries.</p>
+                        <div class="copyright">Copyright X Analytics 2019</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="widget" style="color:white">
+                        <h5 class="widget-title" style="color:white">About</h5>
+                        <ul style="color:white">
+                            <li><a href="#home-page"><span style="color:white">Home</a></li>
+                            <li><a href="#service-page"><span style="color:white">About Us</span></a></li>
+                            <li><a href="#feature-page"><span style="color:white">Our Solutions</span></a></li>
+                            <li><a href="#section-padding"><span style="color:white">Our Clients</span></a></li>
+                            <li><a href="#https://www.freeprivacypolicy.com/privacy/view/43e88778d6c2c8b74955bd211948f9d7"><span
+                                        style="color:white">Privacy
+                                        Policy</span></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="widget">
+                        <h5 class="widget-title" style="color:white">Solutions</h5>
+                        <ul>
+                            <li><a href="#feature-page"><span style="color:white">Chatbots</span></a></li>
+                            <li><a href="#feature-page"><span style="color:white">Payment Solutions</span></a></li>
+                            <li><a href="#feature-page"><span style="color:white">Mobile App Developments</span></a></li>
+                            <li><a href="#feature-page"><span style="color:white">Websites and Web Apps</span></a></li>
+                            <li><a href="#feature-page"><span style="color:white">Mobile Apps</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="widget">
+                        <h5 class="widget-title" style="color:white">Contact Us</h5>
+                        <ul>
+                            <p>HIT Campus Ganges, Harare</p>
+                            <p>info@x-analytics.solutions</p>
+                            <p>+263 772659135</p>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Vendor-JS-->
+    <script src="/static/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/static/js/vendor/bootstrap.min.js"></script>
+    <!--Plugin-JS-->
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <script src="/static/js/ajaxchimp.js"></script>
+    <script src="/static/js/contact-form.js"></script>
+    <script src="/static/js/magnific-popup.min.js"></script>
+    <script src="/static/js/slicknav.min.js"></script>
+
+    <script src="/static/js/wow.min.js"></script>
+
+
+    <!--Main-active-JS-->
+    <script src="/static/js/main.js"></script>
+</body>
+
+
+
+</html>

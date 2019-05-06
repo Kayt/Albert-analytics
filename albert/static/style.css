@@ -1,0 +1,174 @@
+/*-----------------------------------------------------------------------------------
+Template Name: aSaas HTML5 Template,
+Template URI: http://www.themectg.com
+Description: This is html5 template
+Author: Themectg
+Author URI: http://www.themectg.com
+Version: 1.0
+-----------------------------------------------------------------------------------
+CSS INDEX
+===================
+1. Google font
+2. Theme Default CSS
+3. Helper-Class
+4. Headser-Area
+5. Sponsor-Area
+-----------------------------------------------------------------------------------*/
+
+/*-----------------
+1. Google font
+------------------*/
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700,900");
+
+/*-------------------
+2. Theme Default CSS
+--------------------*/
+button,
+a {
+  text-decoration: none;
+  outline: none;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  color: #333333;
+}
+
+input[type="submit"]:focus,
+button:focus,
+a:focus,
+a:hover {
+  text-decoration: none;
+  outline: none;
+  color: #0297f3;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 15px;
+  line-height: 1.3em;
+  font-weight: 500;
+  color: #1c223a;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 2em;
+  color: #686b75;
+}
+
+/* Remove Chrome Input Field's Unwanted Yellow Background Color */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+/*-- 3. Helper-Class --*/
+
+.heading-2 {
+  font-size: 48px;
+}
+
+.heading-3 {
+  font-size: 38px;
+}
+
+.heading-4 {
+  font-size: 28px;
+}
+
+.text-white a,
+.text-white {
+  color: #ffffff;
+}
+
+.text-green a,
+.text-green {
+  color: #1cc9bd;
+}
+
+.text-blue a,
+.text-blue {
+  color: #1992ec;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+.middle-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.padding-left-50 {
+  padding-left: 50px;
+}
+
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.section-padding {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background-size: auto 100%;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+.section-padding-top {
+  padding-top: 120px;
+  background-size: auto 100%;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+.section-padding-bottom {
+  padding-bottom: 120px;
+  background-size: auto 100%;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
