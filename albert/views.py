@@ -1,3 +1,5 @@
+import pandas as pd
+
 from flask import flash, json, jsonify, redirect, render_template, request, \
     url_for
 from flask_login import current_user, login_user
@@ -24,6 +26,8 @@ for news in newsSet:
 
 faqClassifier = Classifier(faqTrainer.data, token)
 
+data = pd.read_csv('callcentre.csv')
+
 
 @lm.user_loader
 def load_user(userid):
@@ -32,8 +36,7 @@ def load_user(userid):
 
 @app.route('/')
 def index():
-    form = RegisterForm()
-    return render_template('index.html', form=form)
+    return render_template('index.html')
 
 
 @app.route('/process', methods=['POST'])
@@ -207,12 +210,16 @@ def validate_phone(number):
 @app.route('/admin')
 @basic_auth.required
 def admin():
-    companies = Company.query.all()
-    questions = PassedQn.query.all()
-    failed = FailedQn.query.all()
-    # emails = CollectEmail.query.all()
-    users = User.query.all()
-    return render_template('admin/index.html', companies=companies, users=users, questions=questions, failed=failed)
+    keys = [k for k,v in data.category.value_counts().to_dict().items()][:20]
+    values = data.category.value_counts().to_list()[:20]
+    rvalues = values[::-1]
+    further = values[20:40]
+    context = {'keys': keys, 'values': values, 'rev':rvalues, 'far':further}
+    return render_template('admin/index.html', context=context)
+
+@app.route('/recommendations')
+def recommend():
+    return render_template('admin/recomendation.html')
 
 @app.route('/company/<id>', methods=['GET', 'POST'])
 def company(id):

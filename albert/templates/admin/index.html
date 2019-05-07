@@ -1,137 +1,191 @@
 {% extends 'admin/base.html' %}
 
 {% block content %}
-<div class="container">
-  <article>
-      <h1>Registered Users</h1>
-      <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Surname</th>
-              <th scope="col">email</th>
-              <th scope="col">Phone</th>
-              <th scope="col">Company</th>
-              <th scope="col">Time Accessed</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for user in users %}
-              <tr>
-                <th scope="row">{{ user.id}}</th>
-                <td>{{ user.first_name}}</td>
-                <td>{{ user.surname}}</td>
-                <td>{{ user.email}}</td>
-                <td>{{ user.phone}}</td>
-                <td>{{ user.company}}</td>
-                <td>{{ user.last_accessed}}</td>
-                <td><a href="{{ url_for('delete', id=user.id)}}" class="btn btn-danger">Delete</a></td>
-              </tr>
-            {% endfor %}
-          </tbody>
-      </table>
-    </article>
+<div class="main-content">
+		<div class="container-fluid">
+			<!-- OVERVIEW -->
+			<div class="panel panel-headline">
+				<div class="panel-heading">
+					<h3 class="panel-title">Category Frequency Analysis</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-12">
+								<div id="headline-chart" class="ct-chart"></div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-    <article>
-      <h1>Questions Asked</h1>
-      <div>
-        <!--<a href="{{ url_for('add_company') }}" class="btn btn-success">Add Company</a>-->
-      </div>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Question Asked</th>
-            <th scope="col">Answer given</th>
-            <th scope="col">Accuracy Level</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for question in questions %}
-            <tr>
-              <th scope="row">{{ question.question }}</th>
-              <td>{{ question.answer }}</a></td>
-              <td>{{ question.accuracy }}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </article>
+			<div class="row">
 
-    <article>
-      <h1>Failed Questions Asked</h1>
-      <div>
-        <!--<a href="{{ url_for('add_company') }}" class="btn btn-success">Add Company</a>-->
-      </div>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Question Asked</th>
-            <!-- <th scope="col">Answer given</th>
-            <th scope="col">Accuracy Level</th> -->
-          </tr>
-        </thead>
-        <tbody>
-          {% for question in failed %}
-            <tr>
-              <td scope="row">{{ question.question }}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </article>
+				<div class="col-md-12">
+					<!-- VISIT CHART -->
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">Sub Category Frequesncy per Category</h3>
+							<div class="right">
+								<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+								<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+							</div>
+						</div>
+						<div class="panel-body">
+							<div id="visits-chart" class="ct-chart"></div>
+						</div>
+					</div>
+					<!-- END VISIT CHART -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END MAIN CONTENT -->
+{% endblock %}
 
-   <!-- <article>
-      <h1>Emails Recieved</h1>
-      <div>
-        <a href="{{ url_for('add_company') }}" class="btn btn-success">Add Company</a>
-      </div>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Message</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for email in emails %}
-            <tr>
-              <th scope="row">{{ email.name }}</th>
-              <td>{{ email.email }}</a></td>
-              <td>{{ email.phone }}</td>
-              <td>{{ email.message }}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </article>-->
-    
-    <article>
-      <h1>Registered Companies</h1>
-      <div>
-        <!--<a href="{{ url_for('add_company') }}" class="btn btn-success">Add Company</a>-->
-      </div>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Data set</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for company in companies %}
-            <tr>
-              <th scope="row">{{ company.id}}</th>
-              <td><a href="{{ url_for('company', id=company.id)}}">{{ company.name}}</a></td>
-              <td>{{ company.dataset}}</td>
-              <td><a href="{{ url_for('delete', id=company.id)}}" class="btn btn-danger">Delete</a></td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </article>
-</div>
+{% block code %}
+<script>
+		$(function() {
+			var data, options;
+	
+			// headline charts
+			//data = {{ context | tojson }};
+			data = {
+				labels: {{context['keys'] | tojson }},
+				series: [
+					{{ context['values'] | tojson }},
+					{{ context['values'] | tojson }}
+				]
+				//series: [
+				//	{{ context['values'] | tojson}},
+				//]
+			};
+	
+			options = {
+				height: 300,
+				showArea: true,
+				showLine: false,
+				showPoint: false,
+				fullWidth: true,
+				axisX: {
+					showGrid: false
+				},
+				lineSmooth: false,
+			};
+	
+			new Chartist.Bar('#headline-chart', data, options);
+	
+	
+			// visits trend charts
+			//data = {
+			//	labels: {{ context['keys'] | tojson}},
+			//	series: [{
+			//		name: 'series-real',
+			//		data: {{ context['values'] | tojson}},
+			//	}, {
+			//		name: 'series-projection',
+			//		data: [240, 350, 360, 380, 400, 450, 480, 523, 555, 600, 700, 800],
+			//	}]
+			//};
+	
+			options = {
+				fullWidth: true,
+				lineSmooth: false,
+				height: "720px",
+				low: 0,
+				high: 'auto',
+				series: {
+					'series-projection': {
+						showArea: true,
+						showPoint: false,
+						showLine: false
+					},
+				},
+				axisX: {
+					showGrid: false,
+	
+				},
+				axisY: {
+					showGrid: false,
+					onlyInteger: true,
+					offset: 0,
+				},
+				chartPadding: {
+					left: 20,
+					right: 20
+				}
+			};
+	
+			new Chartist.Line('#visits-trends-chart', data, options);
+	
+	
+			// visits chart
+			data = {
+				labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+				series: [
+					[6384, 6342, 5437, 2764, 3958, 5068, 7654]
+				]
+			};
+	
+			options = {
+				height: 720,
+				axisX: {
+					showGrid: false
+				},
+			};
+	
+			//new Chartist.Bar('#visits-chart', data, options);
+			new Chartist.Bar('#visits-chart', {
+				labels: {{context['keys'] | tojson }},
+				series: [
+					[1000, 200, 4000, 6000, 800, 1200, 20000, 400, 500, 3000, 1400, 1300, 100, 200, 400, 600, 4000, 6000, 800, 1200],
+					[1000, 200, 4000, 6000, 800, 1200, 600, 4000, 6000, 800, 1200, 20000, 400, 500, 3000, 1400, 1300, 100, 200, 400],
+					[1000, 3000, 1400, 1300, 100, 200, 4000, 6000, 800, 1200, 20000, 400, 500, 3000, 1400, 1300, 100, 200, 4000, 6000]
+					//{{ context['rev'] | tojson }}],
+					//{{ context['far'] | tojson }}
+				]
+			  }, {
+				stackBars: true,
+				height: 300,
+				axisY: {
+				  labelInterpolationFnc: function(value) {
+					return (value / 1000) + 'k';
+				  }
+				}
+			  }).on('draw', function(data) {
+				if(data.type === 'bar') {
+				  data.element.attr({
+					style: 'stroke-width: 30px'
+				  });
+				}
+			  });
+	
+	
+			// real-time pie chart
+			var sysLoad = $('#system-load').easyPieChart({
+				size: 130,
+				barColor: function(percent) {
+					return "rgb(" + Math.round(200 * percent / 100) + ", " + Math.round(200 * (1.1 - percent / 100)) + ", 0)";
+				},
+				trackColor: 'rgba(245, 245, 245, 0.8)',
+				scaleColor: false,
+				lineWidth: 5,
+				lineCap: "square",
+				animate: 800
+			});
+	
+			var updateInterval = 3000; // in milliseconds
+	
+			setInterval(function() {
+				var randomVal;
+				randomVal = getRandomInt(0, 100);
+	
+				sysLoad.data('easyPieChart').update(randomVal);
+				sysLoad.find('.percent').text(randomVal);
+			}, updateInterval);
+	
+			function getRandomInt(min, max) {
+				return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+	
+		});
+		</script>
 {% endblock %}
