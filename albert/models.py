@@ -113,6 +113,7 @@ class User(db.Model, UserMixin):
     phone = db.Column(db.String(200))
     stage = db.Column(db.String(200))
     last_accessed = db.Column(db.DateTime)
+    position = db.Column(db.Integer, default=0)
    
 
     def __init__(self, first_name, surname, email):
@@ -121,6 +122,7 @@ class User(db.Model, UserMixin):
         self.email = email
         self.stage = "menu"
         self.last_accessed = datetime.utcnow()
+        self.position = 0
 
 
     def save(self):

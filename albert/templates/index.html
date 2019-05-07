@@ -436,7 +436,7 @@
                     newMessage = "about";
                     console.log(newMessage);
                     messagesContainer.append(
-                        ['<li class="other">', 'About X Analytics', "</li>"].join("")
+                        ['<li class="other">', 'Line Replacement', "</li>"].join("")
                     );
                     $.ajax({
                         type: "POST",
@@ -467,13 +467,198 @@
                     );
 
                 }
-                function apply() {
+                function datax() {
                     var messagesContainer = $(".messages");
 
-                    newMessage = "apply";
+                    newMessage = "data";
                     console.log(newMessage);
                     messagesContainer.append(
-                        ['<li class="other">', 'Apply For a ChatBot', "</li>"].join("")
+                        ['<li class="other">', 'Data', "</li>"].join("")
+                    );
+                    $.ajax({
+                        type: "POST",
+                        url: "/ask",
+                        data: {
+                            messageText: newMessage
+                        },
+                        success: function (response) {
+                            messagesContainer.append(
+                                ['<li class="self">', response.answer, "</li>"].join("")
+                            );
+                            messagesContainer.finish().animate(
+                                {
+                                    scrollTop: messagesContainer.prop("scrollHeight")
+                                },
+                                250
+                            );
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    });
+                    messagesContainer.finish().animate(
+                        {
+                            scrollTop: messagesContainer.prop("scrollHeight")
+                        },
+                        250
+                    );
+
+                }
+                function money() {
+                    var messagesContainer = $(".messages");
+
+                    newMessage = "money";
+                    console.log(newMessage);
+                    messagesContainer.append(
+                        ['<li class="other">', 'One Money', "</li>"].join("")
+                    );
+                    $.ajax({
+                        type: "POST",
+                        url: "/ask",
+                        data: {
+                            messageText: newMessage
+                        },
+                        success: function (response) {
+                            messagesContainer.append(
+                                ['<li class="self">', response.answer, "</li>"].join("")
+                            );
+                            messagesContainer.finish().animate(
+                                {
+                                    scrollTop: messagesContainer.prop("scrollHeight")
+                                },
+                                250
+                            );
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    });
+                    messagesContainer.finish().animate(
+                        {
+                            scrollTop: messagesContainer.prop("scrollHeight")
+                        },
+                        250
+                    );
+
+                }
+                function sms() {
+                    var messagesContainer = $(".messages");
+
+                    newMessage = "sms";
+                    console.log(newMessage);
+                    messagesContainer.append(
+                        ['<li class="other">', 'SMS', "</li>"].join("")
+                    );
+                    $.ajax({
+                        type: "POST",
+                        url: "/ask",
+                        data: {
+                            messageText: newMessage
+                        },
+                        success: function (response) {
+                            messagesContainer.append(
+                                ['<li class="self">', response.answer, "</li>"].join("")
+                            );
+                            messagesContainer.finish().animate(
+                                {
+                                    scrollTop: messagesContainer.prop("scrollHeight")
+                                },
+                                250
+                            );
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    });
+                    messagesContainer.finish().animate(
+                        {
+                            scrollTop: messagesContainer.prop("scrollHeight")
+                        },
+                        250
+                    );
+
+                }
+                function airtime() {
+                    var messagesContainer = $(".messages");
+
+                    newMessage = "airtime";
+                    console.log(newMessage);
+                    messagesContainer.append(
+                        ['<li class="other">', 'Airtime', "</li>"].join("")
+                    );
+                    $.ajax({
+                        type: "POST",
+                        url: "/ask",
+                        data: {
+                            messageText: newMessage
+                        },
+                        success: function (response) {
+                            messagesContainer.append(
+                                ['<li class="self">', response.answer, "</li>"].join("")
+                            );
+                            messagesContainer.finish().animate(
+                                {
+                                    scrollTop: messagesContainer.prop("scrollHeight")
+                                },
+                                250
+                            );
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    });
+                    messagesContainer.finish().animate(
+                        {
+                            scrollTop: messagesContainer.prop("scrollHeight")
+                        },
+                        250
+                    );
+
+                }
+                function bundles() {
+                    var messagesContainer = $(".messages");
+
+                    newMessage = "bundles";
+                    console.log(newMessage);
+                    messagesContainer.append(
+                        ['<li class="other">', 'Bundles', "</li>"].join("")
+                    );
+                    $.ajax({
+                        type: "POST",
+                        url: "/ask",
+                        data: {
+                            messageText: newMessage
+                        },
+                        success: function (response) {
+                            messagesContainer.append(
+                                ['<li class="self">', response.answer, "</li>"].join("")
+                            );
+                            messagesContainer.finish().animate(
+                                {
+                                    scrollTop: messagesContainer.prop("scrollHeight")
+                                },
+                                250
+                            );
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    });
+                    messagesContainer.finish().animate(
+                        {
+                            scrollTop: messagesContainer.prop("scrollHeight")
+                        },
+                        250
+                    );
+
+                }
+                function vas() {
+                    var messagesContainer = $(".messages");
+
+                    newMessage = "vas";
+                    console.log(newMessage);
+                    messagesContainer.append(
+                        ['<li class="other">', 'VAS', "</li>"].join("")
                     );
                     $.ajax({
                         type: "POST",

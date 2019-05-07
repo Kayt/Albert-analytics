@@ -1,4 +1,4 @@
-# coding: utf-8
+# coding: utf
 
 newsSet = [
 {'question': 'What is a Chat-Bot',

@@ -6,7 +6,9 @@ from sqlalchemy import func
 from validate_email import validate_email 
 
 from . import app, db, lm, mail, basic_auth
+from .constants import *
 from .dataset import newsSet
+from .helper_functions import *
 from .forms import CompanyForm, EmailForm, MenuForm, RegisterForm
 from .models import CollectEmail, Company, FailedQn, PassedQn, User
 from .naiveBayesClassifier.classifier import Classifier
@@ -47,8 +49,7 @@ def process():
     if name and email:
         if validate_email(email, verify=True):
 
-            message = "Welcome {}, what would you like to do <br/><br/><a href='https://kanzatu.stewardbank.co.zw/0771222727?view_campaign=fcee9faa-35c0-44d2-8add-66c41987de21' target='_blank'><button  style='background-color: #0080FF' class='btn btn-primary btn-block btn-round'>Donate to Cholera fund</button></a><br/>".format(name) + \
-                    "<a href='#' onclick='apply(); return false;' style='color:white'><button id='btn1' style='background-color: #0080FF' class='btn btn-primary btn-block btn-round'>Apply for a Chatbot</a></button><br/><a href='#' onclick='about(); return false;' style='color:white'><button id='btn2' style='background-color: #0080FF; color:white' class='btn btn-primary btn-block btn-round'>About X Analytics</a></button>"
+            message = main_menu.format(name)
 
             user = User.find(email=email)
 
@@ -98,27 +99,48 @@ def ask():
         if state == "menu":
             greetings = ['hello', 'hi', 'hey', 'yo',
                          'wassup', 'ndeipi', 'how are you']
-            if message == "apply":
-                current_user.stage = "company"
+            if message == "data" or "data" in message:
+                current_user.stage = "data"
                 current_user.save()
-                return jsonify({'status': 'OK', 'answer': 'Before we setup your 30 day free trial, which company do you represent?'})
+                return jsonify({'status': 'OK', 'answer': data_menu})
+            elif message == "money" or "money" in message:
+                current_user.stage = "money"
+                current_user.save()
+                return jsonify({'status': 'OK', 'answer': money_menu})
+            elif message == "sms" or "sms" in message:
+                current_user.stage = "sms"
+                current_user.save()
+                return jsonify({'status': 'OK', 'answer': sms_menu})
+            elif message == "airtime" or "airtime" in message:
+                current_user.stage = "airtime"
+                current_user.save()
+                return jsonify({'status': 'OK', 'answer': airtime_menu})
+            elif message == "bundles" or "bundles" in message:
+                current_user.stage = "bundles"
+                current_user.save()
+                return jsonify({'status': 'OK', 'answer': bundles_menu})
+            elif message == "vas" or "vas" in message:
+                current_user.stage = "vas"
+                current_user.save()
+                return jsonify({'status': 'OK', 'answer': vas_menu})
             elif message == "about" or "about" in message:
-                current_user.stage = "chat"
+                current_user.stage = "about"
                 current_user.save()
-                return jsonify({'status': 'OK', 'answer': 'What would you like to know about us? Type bye to exit to main menu'})
+                return jsonify({'status': 'OK', 'answer': "Kindly visit any Oneworld(Netone) shop for assistance. Thank You.."})
             elif message in greetings:
-                response = "How are you what would you like to do <br/><br/><a href='https://kanzatu.stewardbank.co.zw/0771222727?view_campaign=fcee9faa-35c0-44d2-8add-66c41987de21' target='_blank'><button  style='background-color: #0080FF' class='btn btn-primary btn-block btn-round'>Donate to Cholera fund</button></a><br/>" + \
-                    "<a href='#' onclick='apply(); return false;' style='color:white'><button id='btn1' style='background-color: #0080FF' class='btn btn-primary btn-block btn-round'>Apply for a Chatbot</a></button><br/><a href='#' onclick='about(); return false;' style='color:white'><button id='btn2' style='background-color: #0080FF; color:white' class='btn btn-primary btn-block btn-round'>About X Analytics</a></button>"
-                return jsonify({'status': 'OK', 'answer': response})
-        elif state == "company":
-            if check_company(message):
-                return True
-            else:
-                new = Company(name=message, dataset=current_user.email)
-                new.save()
-                current_user.stage = "phone"
-                current_user.save()
-                return jsonify({'status': 'OK', 'answer': "Oops! Your Company is not registered for a free 30 day trial, kindly provide your phone number so that I register you for a chatbot?"})
+                return jsonify({'status': 'OK', 'answer': menu2})
+        elif state == "data":
+            return do_data(message)
+        elif state == "money":
+            return do_money(message)
+        elif state == "sms":
+            return do_sms(message)
+        elif state == "airtime":
+            return do_airtime(message)
+        elif state == "bundles":
+            return do_bundles(message)
+        elif state == "vas":
+            return do_vas(message)
         elif state == "chat":
             exits = ['bye', 'exit', 'go back', 'good bye']
             if message in exits:
@@ -137,9 +159,7 @@ def ask():
                 return jsonify({'status': 'OK', 'answer': 'please enter a valid phone number'})
     else:
         return jsonify({'status': 'OK', 'answer': 'Please provide your email and names so that i know you before we start communicating'})
-    response = "How are you what would you like to do <br/><br/><a href='https://kanzatu.stewardbank.co.zw/0771222727?view_campaign=fcee9faa-35c0-44d2-8add-66c41987de21' target='_blank'><button  style='background-color: #0080FF' class='btn btn-primary btn-block btn-round'>Donate to Cholera fund</button></a><br/>" + \
-        "<a href='#' onclick='apply(); return false;' style='color:white'><button id='btn1' style='background-color: #0080FF' class='btn btn-primary btn-block btn-round'>Apply for a Chatbot</a></button><br/><a href='#' onclick='about(); return false;' style='color:white'><button id='btn2' style='background-color: #0080FF; color:white' class='btn btn-primary btn-block btn-round'>About X Analytics</a></button>"
-    return jsonify({'status': 'OK', 'answer': response})
+    return jsonify({'status': 'OK', 'answer': menu2})
 
 
 def get_state(current_user):
