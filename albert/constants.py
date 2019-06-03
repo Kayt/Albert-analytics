@@ -113,4 +113,8 @@ What would you like to ask about
 </ul>
 '''
 
+welcome_msg = '''
+    Hello {}, How can i help you today? 
+'''
+
 

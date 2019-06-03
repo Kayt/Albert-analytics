@@ -7,7 +7,7 @@ from validate_email import validate_email
 
 from . import app, basic_auth, db, lm, mail
 from .constants import *
-from .dataset import newsSet
+from .faq import newsSet
 from .forms import CompanyForm, EmailForm, MenuForm, RegisterForm
 from .models import User
 
